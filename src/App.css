@@ -1,12 +1,13 @@
 .App {
   text-align: center;
-  margin: 30px 50px;
+  margin: 15px 50px;
 
 
 }
 
 .text{
-  margin-top: 20px;
+ 
+  
   font-size: 22px;
   font-weight: bold;
 }
@@ -16,3 +17,10 @@ input[type=file]{
   display: none;
 }
 
+
+.pdf__container{
+  margin: 15px 0;
+
+  border: 3px solid rgb(137, 130, 130);
+  background-color: white;
+}
