@@ -1,23 +1,32 @@
-import logo from './logo.svg';
+
+import { useState } from 'react';
 import './App.css';
+import Header from './components/Header/Header';
+import { PulseLoader } from 'react-spinners';
 
 function App() {
+  const words = ['sdff', '2', '3', '4', '5', '6']
+
+  const getRandomInt = (max) => {
+    return Math.floor(Math.random() * max);
+  }
+  const [show, setShow] = useState(false)
+  const [answer, setAnswer] = useState('')
+  const result = () => {
+    setShow(true)
+    setTimeout(() => {
+      setAnswer(words[getRandomInt(8)])
+      setShow(false)
+    }, 1500)
+    
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header result = {result}/>
+      <div className="text">Просмотр файла</div>
+      <object className='pdf__container' data="" width="500" height="500" type="application/pdf">не удалось показать документ</object>
+      {show ? <PulseLoader color="#36d7b7" /> : <div className="text">Класс документа: {answer}</div> }
     </div>
   );
 }
